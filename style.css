@@ -1,0 +1,130 @@
+:root {
+    --pink: #ff9ecf;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #2a0f1f 0%, #111 70%);
+    color: #fff;
+    font-family: "Quicksand", sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--pink);
+    text-shadow: 0 0 12px rgba(255, 158, 207, 0.5);
+}
+
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 0.6rem 1.6rem;
+    border: 2px solid var(--pink);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: scale 0.2s, box-shadow 0.2s;
+}
+
+#yes-btn:hover {
+    scale: 1.08;
+    box-shadow: 0 0 16px var(--pink);
+}
+
+#heart {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
+.love-word {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pink);
+    text-shadow: 0 0 10px #ff0ecf;
+}
+
+#no-btn {
+    background: transparent;
+    color: var(--pink);
+    transition: left 0.8s, top 0.8s;
+}
+
+.exploding {
+    animation: explode 0.4s ease-out forwards;
+    pointer-events: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; scale: 0.5; }
+    to   { opacity: 1; scale: 1; }
+}
+
+@keyframes explode {
+    0%      { transform: scale(1);                 opacity: 1; filter: blue(0); }
+    40%     { transform: scale(1.4) rotate(-8deg); opacity: 1; }
+    100%    { transform: scale(2.2) rotate(10deg); opacity: 0; filter: blur(4px); }
+}
+
+
+#floating-hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -2rem;
+    left: var(--x);
+    font-size: var(--size);
+    color: var(--pink);
+    opacity: 0;
+    animation: floatUp var(--duration) linear forwards;
+}
+
+@keyframes floatUp {
+    0%   { translate: 0 0;                   opacity: 0; }
+    10%  {                                   opacity: 0.4; }
+    90%  {                                   opacity: 0.4; }
+    100% { translate: var(--drift) -110vh;   opacity: 0; }
+}
+
