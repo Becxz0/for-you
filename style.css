@@ -74,7 +74,20 @@ button {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--pink);
-    text-shadow: 0 0 10px #ff0ecf;
+    text-shadow:
+        0 0 6px rgba(255, 158, 207, 0.8),
+        0 0 16px rgba(255, 158, 207, 0.4);
+}
+
+.beating {
+    animation: heartbeat 2.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { scale: 1; }
+    15%      { scale: 1.1; }
+    30%      { scale: 1; }
+    45%      { scale: 1.07; }
 }
 
 #no-btn {

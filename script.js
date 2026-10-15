@@ -81,6 +81,7 @@ function startAnimation() {
             if (progress === 1) {
                 words.push({ el: leader, t: 0}); // the leader takes the last empty slot
                 phase = "flow";
+                heart.classList.add("beating"); // start the heartbeat
             }
         }
         else if (phase === "flow") {
